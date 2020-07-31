@@ -5,16 +5,18 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <!-- <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css" /> -->
     <title>Hello World!</title>
     <style>
       body {
         color: white;
         background-color: darkslategrey;
+        height: 100vh;
       }
       pre {
         color: black;
         background-color: bisque;
-        padding: 1em;
+        padding: 5px;
       }
     </style>
   </head>
@@ -23,9 +25,18 @@
     <!-- We are using Node.js <span id="node-version"></span>,
     Chromium <span id="chrome-version"></span>,
     and Electron <span id="electron-version"></span>. -->
-
-    <pre id="out-txt" style="background-color: bisque;"></pre>
-    <button id="copy-btn">Copy</button>
+    <section class="section">
+      <div class="container">
+        <pre id="in-txt" style="background-color:azure;"></pre>
+        <pre id="out-txt" style="background-color: bisque;"></pre>
+        <button id="refresh-btn" class="button is-link is-light">Refresh [0]</button>
+        <button id="copy-btn" class="button is-link is-light">Copy</button>
+        <button id="snip-btn-1" class="button is-link is-light">Enum [1]</button>
+        <button id="snip-btn-2" class="button is-link is-light">cout [2]</button>
+        <button id="snip-btn-3" class="button is-link is-light">Split Commas [3]</button>
+        <button id="snip-btn-4" class="button is-link is-light">Join Commas [4]</button>
+      </div>
+    </section>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
