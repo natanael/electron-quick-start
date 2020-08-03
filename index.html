@@ -8,15 +8,66 @@
     <!-- <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css" /> -->
     <title>Hello World!</title>
     <style>
-      body {
-        color: white;
-        background-color: darkslategrey;
-        height: 100vh;
+      @font-face {
+        font-family: 'ZillaSlab-Medium';
+        src: url('./fonts/zillaslab/ZillaSlab-Medium.ttf');
       }
+      body {
+        font-family: 'ZillaSlab-Medium', sans-serif;
+        color: white;
+        background-color: #111;
+        height: 100vh;
+        margin: 0;
+      }
+      h1 {
+        padding: 4px 8px 4px 1em;
+        background-color: black;
+        display: inline-block;
+        letter-spacing: 1.5px;
+      }
+      .header p {
+        padding-left: 1em;
+      }
+      .no-margin { margin: 0; }
+      .flex-line { display: flex; flex-direction: row; }
+      .flex-center { align-items: center; }
+      .flex-start { justify-content: flex-start; }
       pre {
         color: black;
         background-color: bisque;
         padding: 5px;
+      }
+      .button-area {
+        margin-left: 4px;
+        border-left: 4px solid #ffcc33;
+        padding-left: 4px;
+      }
+      .button-area button {
+        background-color: #111;
+        border: 1px solid #333;
+        color: white;
+        margin: 2px 0;
+        padding: 0;
+      }
+      .button-area .buttons {
+        display: flex;
+        flex-direction: column;
+      }
+      .button-area button {
+        display: flex;
+        flex-direction: row;
+      }
+      .button-area button .shortcut {
+        background-color: #444;
+        width: 2em;
+        margin-right: 1em;
+      }
+      .button-area button .shortcut,
+      .button-area button .label {
+        padding: 2px 0;
+      }
+      .button-area button .label {
+        padding-right: 4px;
       }
     </style>
   </head>
@@ -27,14 +78,48 @@
     and Electron <span id="electron-version"></span>. -->
     <section class="section">
       <div class="container">
+        <div class="header flex-line flex-center flex-start">
+          <h1 class="no-margin">Clipboard Snippets</h1>
+          <p class="no-margin">Put something in your clipboard and hit numpad 0</p>
+        </div>
         <pre id="in-txt" style="background-color:azure;"></pre>
         <pre id="out-txt" style="background-color: bisque;"></pre>
-        <button id="refresh-btn" class="button is-link is-light">Refresh [0]</button>
-        <button id="copy-btn" class="button is-link is-light">Copy</button>
-        <button id="snip-btn-1" class="button is-link is-light">Enum [1]</button>
-        <button id="snip-btn-2" class="button is-link is-light">cout [2]</button>
-        <button id="snip-btn-3" class="button is-link is-light">Split Commas [3]</button>
-        <button id="snip-btn-4" class="button is-link is-light">Join Commas [4]</button>
+        <div class="flex-line">
+          <div class="button-area">
+            <div class="title">Base actions</div>
+            <div class="buttons">
+              <button id="refresh-btn" class="button is-link is-light">
+                <span class="shortcut">0</span>
+                <span class="label">Refresh</span>
+              </button>
+              <button id="copy-btn" style="display: none;" class="button is-link is-light">
+                <span class="shortcut none">&nbsp;</span>
+                <span class="label">Copy</span>
+              </button>
+              <button id="snip-btn-3" class="button is-link is-light">
+                <span class="shortcut">3</span>
+                <span class="label">Split Commas</span>
+              </button>
+              <button id="snip-btn-4" class="button is-link is-light">
+                <span class="shortcut">4</span>
+                <span class="label">Join Commas</span>
+              </button>
+            </div>
+          </div>
+          <div class="button-area">
+            <div class="title">C++</div>
+            <div class="buttons">
+              <button id="snip-btn-1" class="button is-link is-light">
+                <span class="shortcut">1</span>
+                <span class="label">Enum</span>
+              </button>
+              <button id="snip-btn-2" class="button is-link is-light">
+                <span class="shortcut">2</span>
+                <span class="label">cout</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

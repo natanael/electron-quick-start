@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "bulma": "^0.9.0",
+    "codemirror": "^5.56.0",
     "lodash": "^4.17.19"
   }
 }
