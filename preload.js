@@ -31,7 +31,7 @@ window.clipboard = {
     return clipboard.readText('selection');
   },
   send(text/* : string */) {
-    return clipboard.writeText(text, 'selection');
+    return clipboard.writeText(text);
   }
 }
 
